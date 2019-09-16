@@ -38,7 +38,8 @@ if(line0[0]=='1'):
         result = zxprovince+province+city+city1+district
         result1 = province+city+city1+district
         last = re.sub(result1,'',add,1)
-        finaladd=[zxprovince,province,city,district,last]
+        last1 = last.split('.')
+        finaladd=[zxprovince,province,city,district,last1[0]]
 #不是直辖
     else:
         if m.lastindex >= 1:
@@ -55,7 +56,8 @@ if(line0[0]=='1'):
                 district = m.group(4)
         result = province+city+city1+district
         last = re.sub(result,'',add)
-        finaladd=[province,city,city1,district,last]
+        last1 = last.split('.')
+        finaladd=[province,city,city1,district,last1[0]]
 
 dic['地址:']=finaladd
 json = json.dumps(dic,ensure_ascii=False,indent=4)
