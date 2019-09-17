@@ -9,6 +9,8 @@ city1= ''
 district = ''
 zhixia=['北京','天津','上海','重庆']
 dic={}
+line = input()
+line0 = line.split("!")
 def namenum(lista):
     line1 = lista[1].split(",")
     adda = re.sub(r'1\d{10}','',line1[1])
@@ -16,8 +18,6 @@ def namenum(lista):
     dic['姓名']=line1[0]
     dic['手机']=tel[0]
     return adda
-line = input()
-line0 = line.split("!")
 if(line0[0]=='1'):
     add = namenum(line0)
     PATTERN = r'([\u4e00-\u9fa5]{2,5}?(?:省|自治区|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市|盟|自治州)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市|旗)){0,1}([\u4e00-\u9fa5]{2,7}?(?:村|镇|街道|乡)){0,1}'
