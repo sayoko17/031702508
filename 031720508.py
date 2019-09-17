@@ -181,8 +181,8 @@ if(line0[0]=='3'):
 
         finaladd=[province,city,city1,district,daolu,hao,last1[0]]
 dic['地址']=finaladd
-json = json.dumps(dic,ensure_ascii=False,indent=4)
-print (json)
+json1 = json.dumps(dic,ensure_ascii=False,indent=4)
+print (json1)
 
 #print("电话：",tel)
 #print("地址：",add)
