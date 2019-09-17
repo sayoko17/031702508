@@ -11,11 +11,11 @@ zhixia=['北京','天津','上海','重庆']
 dic={}
 def namenum(lista):
     line1 = lista[1].split(",")
-    add = re.sub(r'1\d{10}','',line1[1])
+    adda = re.sub(r'1\d{10}','',line1[1])
     tel = re.findall(r'1\d{10}',line1[1])
     dic['姓名']=line1[0]
     dic['手机']=tel[0]
-    return add
+    return adda
 line = input()
 line0 = line.split("!")
 if(line0[0]=='1'):
