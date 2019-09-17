@@ -12,12 +12,15 @@ zhixia=['北京','天津','上海','重庆']
 dic={}
 line = input()
 line0 = line.split("!")
+def telname(a):
+    line1 = a.split(",")
+    add = re.sub(r'1\d{10}', '', line1[1])
+    tel = re.findall(r'1\d{10}', line1[1])
+    dic['姓名'] = line1[0]
+    dic['手机'] = tel[0]
+    return add
 if(line0[0]=='1'):
-    line1 = line0[1].split(",")
-    add = re.sub(r'1\d{10}','',line1[1])
-    tel = re.findall(r'1\d{10}',line1[1])
-    dic['姓名']=line1[0]
-    dic['手机']=tel[0]
+    add = telname(line0[1])
     PATTERN = r'([\u4e00-\u9fa5]{2,5}?(?:省|自治区|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:村|镇|街道|乡)){0,1}'
     pattern = re.compile(PATTERN)
     m = pattern.search(add)
@@ -61,11 +64,7 @@ if(line0[0]=='1'):
 
         finaladd=[province,city,city1,district,last1[0]]
 if(line0[0]=='2'):
-    line1 = line0[1].split(",")
-    add = re.sub(r'1\d{10}','',line1[1])
-    tel = re.findall(r'1\d{10}',line1[1])
-    dic['姓名']=line1[0]
-    dic['手机']=tel[0]
+    add = telname(line0[1])
     PATTERN = r'([\u4e00-\u9fa5]{2,5}?(?:省|自治区|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:村|镇|街道|乡)){0,1}([\u4e00-\u9fa5]{2,7}?(?:路|大街|巷)){0,1}([0-9]{1,5}?(?:号)){0,1}'
     pattern = re.compile(PATTERN)
     m = pattern.search(add)
@@ -120,11 +119,7 @@ if(line0[0]=='2'):
 
         finaladd=[province,city,city1,district,daolu,hao,last1[0]]
 if(line0[0]=='3'):
-    line1 = line0[1].split(",")
-    add = re.sub(r'1\d{10}','',line1[1])
-    tel = re.findall(r'1\d{10}',line1[1])
-    dic['姓名']=line1[0]
-    dic['手机']=tel[0]
+    add = telname(line0[1])
     PATTERN = r'([\u4e00-\u9fa5]{2,5}?(?:省|自治区|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:区|县|州|市)){0,1}([\u4e00-\u9fa5]{2,7}?(?:村|镇|街道|乡)){0,1}([\u4e00-\u9fa5]{2,7}?(?:路|大街|巷)){0,1}([0-9]{1,5}?(?:号)){0,1}'
     pattern = re.compile(PATTERN)
     m = pattern.search(add)
